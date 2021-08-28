@@ -7,7 +7,12 @@ const menController = new MenController();
 const cpuController = new CpuController();
 const authController = new AuthController();
 
-route.post("/", authController.checkLoginKey, cpuController.loadCpuInfo);
+const importe = {
+  menController: new MenController()
+}
+
+route.post("/", authController.checkLoginKey, importe.menController.memInfo);
 route.post("/meminfo", authController.checkLoginKey, menController.memInfo);
+route.post("/test", authController.checkLoginKey, menController.memInfo);
 
 module.exports = route;

@@ -7,7 +7,7 @@ module.exports = class CpuController {
         return response.status(200).json({
             modelName: shell.exec(`cat /proc/cpuinfo |grep 'model name' | cut -d ':' -f 2 | sed 's/^ //g'`),
             cpuMHz: shell.exec(`cat /proc/cpuinfo |grep 'cpu MHz' | cut -d ':' -f 2 | sed 's/^ //g'`),
-            cacheSize: shell.exec(`cat /proc/cpuinfo |grep 'cache size' | cut -d ':' -f 2 | sed 's/^ //g' | sed 's/KB//g'`)
+            cacheSize: shell.exec(`cat /proc/cpuinfo |grep 'cache size' | cut -d ':' -f 2 | sed 's/^ //g' | sed 's/KB//g'`)            
         });
     }
 
